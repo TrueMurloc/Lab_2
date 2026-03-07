@@ -55,3 +55,34 @@ a:hover {
     text-decoration: underline;
     color: #2c3e50;
 }
+
+/* Базовий стиль кнопки */
+.btn-theme {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid #2980b9;
+    border-radius: 25px; /* Закруглені кути */
+    background-color: #ffffff;
+    color: #2980b9;
+    transition: all 0.3s ease; /* Плавна анімація зміни кольору */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Ефект при наведенні (Hover) */
+.btn-theme:hover {
+    background-color: #2980b9;
+    color: #ffffff;
+    transform: translateY(-2px); /* Легке підняття кнопки */
+}
+
+/* Це має бути в styles.css */
+body.dark-mode {
+    background-color: #1a1a1a !important; /* Додай !important для тесту */
+    color: #ffffff !important;
+}
+
+body.dark-mode h1, body.dark-mode h3, body.dark-mode p {
+    color: #ffffff !important;
+}

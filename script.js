@@ -53,3 +53,40 @@ fetch(`https://jsonplaceholder.typicode.com/posts/${variant}/comments`)
             container.appendChild(commentDiv);
         });
     });
+
+
+    setTimeout(() => {
+        document.getElementById('contactModal').style.display = 'block';
+    }, 60000); // 60000 мс = 1 хвилина    
+
+    // Чекаємо, поки завантажиться весь DOM
+document.addEventListener('DOMContentLoaded', () => {
+    const themeBtn = document.getElementById('theme-toggle');
+
+    if (!themeBtn) {
+        console.error("Кнопку не знайдено! Перевір id='theme-toggle' в HTML.");
+        return;
+    }
+
+    // Функція для перемикання
+    themeBtn.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+        
+        // Перевіряємо в консолі (натисни F12 в браузері)
+        console.log("Клас dark-mode зараз: ", document.body.classList.contains('dark-mode'));
+        
+        // Оновлюємо текст на кнопці для наочності
+        if (document.body.classList.contains('dark-mode')) {
+            this.textContent = "☀️ Денний режим";
+        } else {
+            this.textContent = "🌙 Нічний режим";
+        }
+    });
+
+    // Автоматичне перемикання за часом (твоє завдання 4.b)
+    const hour = new Date().getHours();
+    if (hour >= 21 || hour < 7) {
+        document.body.classList.add('dark-mode');
+        themeBtn.textContent = "☀️ Денний режим";
+    }
+});
