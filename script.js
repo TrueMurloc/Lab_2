@@ -38,3 +38,18 @@ function displaySystemInfo() {
 // Викликаємо функції
 saveSystemInfo();
 displaySystemInfo();
+
+
+
+const variant = 2; 
+fetch(`https://jsonplaceholder.typicode.com/posts/${variant}/comments`)
+    .then(response => response.json())
+    .then(comments => {
+        const container = document.getElementById('comments-container');
+        container.innerHTML = ''; // Очищуємо текст завантаження
+        comments.forEach(comment => {
+            const commentDiv = document.createElement('div');
+            commentDiv.innerHTML = `<strong>${comment.name}</strong> (${comment.email}): <p>${comment.body}</p><hr>`;
+            container.appendChild(commentDiv);
+        });
+    });
