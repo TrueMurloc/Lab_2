@@ -56,30 +56,30 @@ a:hover {
     color: #2c3e50;
 }
 
-/* Базовий стиль кнопки */
+/* base button style */
 .btn-theme {
     padding: 10px 20px;
     font-size: 14px;
     font-weight: bold;
     cursor: pointer;
     border: 2px solid #2980b9;
-    border-radius: 25px; /* Закруглені кути */
+    border-radius: 25px; /* circled corners */
     background-color: #ffffff;
     color: #2980b9;
-    transition: all 0.3s ease; /* Плавна анімація зміни кольору */
+    transition: all 0.3s ease; /* smooth colour anim change */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Ефект при наведенні (Hover) */
+/* hover effect */
 .btn-theme:hover {
     background-color: #2980b9;
     color: #ffffff;
-    transform: translateY(-2px); /* Легке підняття кнопки */
+    transform: translateY(-2px); 
 }
 
-/* Це має бути в styles.css */
+/* dark mode for body */
 body.dark-mode {
-    background-color: #1a1a1a !important; /* Додай !important для тесту */
+    background-color: #1a1a1a !important; 
     color: #ffffff !important;
 }
 

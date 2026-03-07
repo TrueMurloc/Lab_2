@@ -1,30 +1,29 @@
-// 1.a. Отримуємо дані про ОС та браузер і зберігаємо у localStorage
+// 1.a. recieve data about OS, browser, language and seving it to localstorage
 function saveSystemInfo() {
     const info = {
         browserName: navigator.appName,
         browserVersion: navigator.appVersion,
-        platform: navigator.platform, // Інформація про ОС
-        userAgent: navigator.userAgent, // Повний рядок браузера
-        language: navigator.language // Мова системи
+        platform: navigator.platform, // OS
+        userAgent: navigator.userAgent, // browser
+        language: navigator.language // system language
     };
 
-    // Перетворюємо об'єкт у рядок, бо localStorage зберігає лише рядки
+    // localstorage saves only strings
     localStorage.setItem('os_browser_data', JSON.stringify(info));
 }
 
-// 1.b. Відображаємо дані з localStorage у футері
+// 1.b. show data from storage in footer
 function displaySystemInfo() {
-    // Отримуємо рядок з сховища
     const storedData = localStorage.getItem('os_browser_data');
     
     if (storedData) {
-        // Перетворюємо рядок назад в об'єкт
+        // string into object
         const data = JSON.parse(storedData);
         
-        // Знаходимо футер за ID
+        // find footer by id
         const displayDiv = document.getElementById('system-info-display');
         
-        // Формуємо текст для виводу
+        // formating text for display
         displayDiv.innerHTML = `
             <ul>
                 <li><strong>ОС (Платформа):</strong> ${data.platform}</li>
@@ -35,7 +34,7 @@ function displaySystemInfo() {
     }
 }
 
-// Викликаємо функції
+// Func calls
 saveSystemInfo();
 displaySystemInfo();
 
@@ -46,7 +45,7 @@ fetch(`https://jsonplaceholder.typicode.com/posts/${variant}/comments`)
     .then(response => response.json())
     .then(comments => {
         const container = document.getElementById('comments-container');
-        container.innerHTML = ''; // Очищуємо текст завантаження
+        container.innerHTML = ''; 
         comments.forEach(comment => {
             const commentDiv = document.createElement('div');
             commentDiv.innerHTML = `<strong>${comment.name}</strong> (${comment.email}): <p>${comment.body}</p><hr>`;
@@ -57,9 +56,9 @@ fetch(`https://jsonplaceholder.typicode.com/posts/${variant}/comments`)
 
     setTimeout(() => {
         document.getElementById('contactModal').style.display = 'block';
-    }, 60000); // 60000 мс = 1 хвилина    
+    }, 60000); // 60000 ms = 1 min    
 
-    // Чекаємо, поки завантажиться весь DOM
+
 document.addEventListener('DOMContentLoaded', () => {
     const themeBtn = document.getElementById('theme-toggle');
 
@@ -68,14 +67,14 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // Функція для перемикання
+    // toggle function
     themeBtn.addEventListener('click', function() {
         document.body.classList.toggle('dark-mode');
         
-        // Перевіряємо в консолі (натисни F12 в браузері)
+        // logs
         console.log("Клас dark-mode зараз: ", document.body.classList.contains('dark-mode'));
         
-        // Оновлюємо текст на кнопці для наочності
+        // button text update
         if (document.body.classList.contains('dark-mode')) {
             this.textContent = "☀️ Денний режим";
         } else {
@@ -83,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Автоматичне перемикання за часом (твоє завдання 4.b)
+    // Automatic dark mode based on time
     const hour = new Date().getHours();
     if (hour >= 21 || hour < 7) {
         document.body.classList.add('dark-mode');
