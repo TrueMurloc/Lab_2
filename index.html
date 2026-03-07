@@ -73,5 +73,22 @@
         <li><strong>Мережі:</strong> Cisco Packet Tracer (VLAN, Routing)</li>
     </ul>
 
+<script>
+        // а. Зберігаємо інфо про ОС та браузер
+const browserData = {
+    platform: navigator.platform,
+    userAgent: navigator.userAgent,
+    language: navigator.language
+};
+localStorage.setItem('systemInfo', JSON.stringify(browserData));
+
+// b. Відображаємо у футері
+const info = JSON.parse(localStorage.getItem('systemInfo'));
+document.getElementById('storage-info').innerText = 
+    `Ваша ОС та браузер: ${info.userAgent} (Мова: ${info.language})`;
+</script>
+    <footer>
+        <div id="storage-info"></div>
+    </footer>
 </body>
 </html>
