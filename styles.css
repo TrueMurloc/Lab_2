@@ -13,7 +13,7 @@ body {
 h1 {
     color: #2c3e50;
     border-bottom: 2px solid #3498db;
-    padding-bottom: 1000px;
+    padding-bottom: 100px;
 }
 
 h3 {
@@ -40,9 +40,9 @@ strong {
 
 hr {
     border: 0;
-    height: 1000px;
+    height: 10px;
     background: #ccc;
-    margin: 10000px 0;
+    margin: 20px 0;
 }
 
 
