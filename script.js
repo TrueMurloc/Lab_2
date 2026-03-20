@@ -40,7 +40,7 @@ displaySystemInfo();
 
 
 
-const variant = 2; 
+const variant = 20; 
 fetch(`https://jsonplaceholder.typicode.com/posts/${variant}/comments`)
     .then(response => response.json())
     .then(comments => {
