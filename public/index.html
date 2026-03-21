@@ -92,11 +92,12 @@
 
     <div id="contactModal" style="display:none; position:fixed; top:20%; left:30%; background:white; padding:20px; border:2px solid #333; z-index:1000;">
         <h3>Зворотній зв'язок</h3>
-        <form action="https://formspree.io/f/mwvrkgbp" method="POST">
-            <input type="text" name="name" placeholder="Ім'я" required><br><br>
-            <input type="email" name="email" placeholder="Email" required><br><br>
-            <input type="tel" name="phone" placeholder="Номер телефону"><br><br>
-            <textarea name="message" placeholder="Ваше повідомлення"></textarea><br><br>
+        <form id="contact-form">
+            <input type="text" id="name" placeholder="Ім'я" required><br><br>
+            <input type="email" id="email" placeholder="Email" required><br><br>
+            <input type="text" id="subject" placeholder="Тема повідомлення"><br><br>
+            <textarea id="message" placeholder="Ваше повідомлення" required></textarea><br><br>
+            
             <button type="submit">Відправити</button>
             <button type="button" onclick="document.getElementById('contactModal').style.display='none'">Закрити</button>
         </form>

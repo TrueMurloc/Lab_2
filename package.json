@@ -21,6 +21,7 @@
   "dependencies": {
     "@feathersjs/express": "^5.0.42",
     "@feathersjs/feathers": "^5.0.42",
-    "nodemailer": "^8.0.3"
+    "nodemailer": "^8.0.3",
+    "resend": "^6.9.4"
   }
 }

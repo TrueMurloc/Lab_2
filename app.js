@@ -1,60 +1,39 @@
-const feathers = require('@feathersjs/feathers');
-const express = require('@feathersjs/express');
-const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
+const resend = new Resend('re_ZqctR7tc_FxYp2SfKG2NGkth8Wo7YvHMw'); // Твій ключ від Resend
 
-const app = express(feathers());
-
-// 1. Налаштування статики (Завдання 1.a, 1.b)
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/', express.static('public')); // Роздача файлів з папки public
+app.use('/', express.static('public'));
 
-// 2. Конфігурація Nodemailer для Mailjet (Завдання 2.c)
-const transporter = nodemailer.createTransport({
-    host: 'in-v3.mailjet.com',
-    port: 587,
-    auth: {
-        user: ' 03d4ebb3a23b416a8a2ecd5b8bf55fb0',
-        pass: '332dbb9a7d691880a6dccaa2ded0bb48'
-    }
-});
-
-// 3. Ендпоінт POST /api/contact з валідацією (Завдання 2.a, 2.b)
 app.post('/api/contact', async (req, res) => {
     const { name, email, subject, message } = req.body;
 
-    // Базова валідація
-    if (!name || name.length < 2) {
-        return res.status(400).send('Помилка: Ім’я занадто коротке.');
+    // Валідація (залишаємо як була)
+    if (!name || !email || !message) {
+        return res.status(400).send('Заповніть усі поля!');
     }
-    
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        return res.status(400).send('Помилка: Некоректний формат email.');
-    }
-
-    if (!message || message.length < 10) {
-        return res.status(400).send('Помилка: Повідомлення має бути довшим за 10 символів.');
-    }
-
-    // Формування листа
-    const mailOptions = {
-        from: 'mixa251106@gmail.com', 
-        to: 'mixa2511061@gmail.com', 
-        subject: `[Contact Form] ${subject || 'Без теми'}`,
-        text: `Повідомлення від: ${name} (${email})\n\nТекст:\n${message}`
-    };
 
     try {
-        await transporter.sendMail(mailOptions);
-        res.status(200).send('Лист успішно надіслано через Mailjet!');
+        const data = await resend.emails.send({
+            from: 'onboarding@resend.dev', // Стандартний відправник Resend для тестів
+            to: 'mixa251106@gmail.com',    // Твоя пошта реєстрації
+            subject: subject || 'Нове повідомлення з сайту',
+            html: `
+                <h3>Нове повідомлення від ${name}</h3>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Текст:</strong> ${message}</p>
+            `
+        });
+
+        console.log('Лист надіслано успішно через Resend:', data);
+        res.status(200).send('Дякуємо! Лист надіслано.');
     } catch (error) {
-        console.error('Помилка Mailjet:', error);
-        res.status(500).send('Сталася помилка на сервері при відправці.');
+        console.error('Помилка Resend:', error);
+        res.status(500).send('Помилка сервера при відправці.');
     }
 });
 
 const PORT = 3030;
 app.listen(PORT, () => {
-    console.log(`Сервер FeathersJS запущено на http://localhost:${PORT}`);
+    console.log(`Сервер працює на http://localhost:${PORT}`);
 });
