@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>CV - Лабораторна робота 2</title>
+</head>
+<body>
+
+    <div style="padding: 20px; text-align: right;">
+        <button id="theme-toggle" class="btn-theme">Змінити тему (День/Ніч)</button>
+    </div>
+
+    <h1>Романенко Михайло Андрійович</h1>
+
+
+    <h3>Про себе</h3>
+    <p>
+        Студент Національного університету <strong>"Львівська політехніка"</strong> за спеціальністю <strong>"Кібербезпека"</strong>. 
+        Наразі я активно формую свій технічний фундамент: успішно реалізував понад 5 навчальних проєктів, серед яких розробка систем керування базами даних та конфігурація захищених мереж. 
+        Щиро захоплююсь програмуванням та автоматизацією процесів. 
+        <p><strong>Моя мета</strong> — стати висококваліфікованим фахівцем у сфері Application Security, створювати безпечний програмний код та впроваджувати ефективні рішення для захисту даних у сучасних проєктах.</p>
+    </p>
+    <hr>
+    
+
+        <p><strong>Посада:</strong> Студент / Trainee Developer</p>
+    
+
+
+    <h3>Контактна інформація</h3>
+    <ul>
+        <li>Email: student@example.com</li>
+        <li>GitHub: https://github.com/TrueMurloc</li>
+    </ul>
+
+    <h3>Освіта</h3>
+    <p><strong>Національний університет "Львівська політехніка"</strong></p>
+    <p>Спеціальність: Кібербезпека</p>
+
+    <h3>Досвід та навчальні проєкти</h3>
+    <ul>
+        <li>
+            <strong>Проєктування БД для ОСББ (Курсова робота)</strong>
+            <p>Розробка концептуальної та логічної моделей бази даних. Написання складних SQL-запитів та робота з реляційними таблицями.</p>
+        </li>
+        <li>
+            <strong>Адміністрування комп'ютерних мереж</strong>
+            <p>Побудова топологій мереж у Cisco Packet Tracer, конфігурація маршрутизаторів та комутаторів, налаштування IP-адресації.</p>
+        </li>
+        <li>
+            <strong>Технології програмування та ООП</strong>
+            <p>Створення консольних та десктопних застосунків з використанням принципів об'єктно-орієнтованого програмування.</p>
+        </li>
+        <li>
+            <strong>Розробка на скриптових мовах</strong>
+            <p>Автоматизація задач та написання логіки веб-застосунків (Python/PHP), обробка даних з форм.</p>
+        </li>
+    </ul>
+
+
+    <h3>М'які навички (Soft Skills)</h3>
+    <ul>
+        <li><strong>Аналітичне мислення:</strong> здатність до детального аналізу вимог при проєктуванні баз даних та архітектури програм.</li>
+        <li><strong>Командна робота:</strong> досвід взаємодії під час виконання групових навчальних проєктів та лабораторних робіт.</li>
+        <li><strong>Швидке навчання:</strong> опанування нових інструментів (наприклад, п'яти нових AI-сервісів) та мов програмування у стислі терміни.</li>
+        <li><strong>Вирішення проблем:</strong> навички пошуку та усунення помилок у коді (debugging) та конфігураціях мереж.</li>
+        <li><strong>Відповідальність:</strong> дотримання дедлайнів при написанні курсових робіт (Term papers) та звітності.</li>
+    </ul>
+
+    <h3>Технічні навички (Hard Skills)</h3>
+    <ul>
+        <li><strong>Мови програмування:</strong> C#, PHP, Python</li>
+        <li><strong>Веб-технології:</strong> HTML, CSS</li>
+        <li><strong>Бази даних:</strong> SQL (MySQL, PostgreSQL), UML-моделювання</li>
+        <li><strong>Мережі:</strong> Cisco Packet Tracer (VLAN, Routing)</li>
+    </ul>
+
+    <hr>
+    <footer>
+        <p><strong>Інформація про систему (з LocalStorage):</strong></p>
+        <div id="system-info-display">Завантаження даних...</div>
+    </footer>
+
+
+
+    <section id="comments-section">
+        <h3>Відгуки попередніх роботодавців</h3>
+        <div id="comments-container">Завантаження коментарів...</div>
+    </section>
+
+    <div id="contactModal" style="display:none; position:fixed; top:20%; left:30%; background:white; padding:20px; border:2px solid #333; z-index:1000;">
+        <h3>Зворотній зв'язок</h3>
+        <form action="https://formspree.io/f/mwvrkgbp" method="POST">
+            <input type="text" name="name" placeholder="Ім'я" required><br><br>
+            <input type="email" name="email" placeholder="Email" required><br><br>
+            <input type="tel" name="phone" placeholder="Номер телефону"><br><br>
+            <textarea name="message" placeholder="Ваше повідомлення"></textarea><br><br>
+            <button type="submit">Відправити</button>
+            <button type="button" onclick="document.getElementById('contactModal').style.display='none'">Закрити</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script> </body>
+</body>
+</html>
