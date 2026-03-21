@@ -1,0 +1,8 @@
+Варіант 21
+Node.js framework: FeathersJS 
+Mail send by: Resend SDK/API 
+Tunneling: localtunnel
+
+first bash: node app.js
+second bash: lt --port 3030 --local-host 127.0.0.1
+to check your ip: ip.me in browser

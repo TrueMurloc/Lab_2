@@ -1,4 +1,8 @@
+const feathers = require('@feathersjs/feathers');
+const express = require('@feathersjs/express');
 const { Resend } = require('resend');
+
+const app = express(feathers());
 const resend = new Resend('re_ZqctR7tc_FxYp2SfKG2NGkth8Wo7YvHMw'); // Твій ключ від Resend
 
 app.use(express.json());
